@@ -50,7 +50,6 @@ void eventFunc(SDL_Event e)
 
         if (e.type == SDL_MOUSEMOTION)
         {
-            printf("%d %d\n", e.motion.x, e.motion.y);
             aY -=  e.motion.xrel/2;
             aX +=  e.motion.yrel/2;
             
@@ -61,13 +60,13 @@ void eventFunc(SDL_Event e)
 void loopFunc(Window *win)
 {
 
-    cube2 = rotateCubeX(cube, aX);
+    cube2 = rotateObjectX(cube, aX);
     cubes[0] = cube2;
 
-    cube2 = rotateCubeY(cube2, aY);
+    cube2 = rotateObjectY(cube2, aY);
     cubes[1] = cube2;
 
-    cube2 = rotateCubeZ(cube2, aZ);
+    cube2 = rotateObjectZ(cube2, aZ);
     cubes[2] = cube2;
 
     //
@@ -75,11 +74,11 @@ void loopFunc(Window *win)
     SDL_RenderClear(renderer);
 
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-    drawCubeW(renderer, cube2);
+    drawObject(renderer, cube2);
 
     for (int i = 0; i < 3; i++)
     {
-        freeCube(cubes[i]);
+        freeObject(cubes[i]);
     }
 
     //
