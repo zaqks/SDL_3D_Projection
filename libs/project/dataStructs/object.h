@@ -1,3 +1,5 @@
+#define N 31
+
 typedef struct
 {
     Array *points;
@@ -5,6 +7,14 @@ typedef struct
 
 } Object;
 
+Object *initObject()
+{
+    Object *obj = (Object *)malloc(sizeof(Object));
+    obj->points = initArray();
+    obj->lines = initArray();
+
+    return obj;
+}
 
 Object *cloneObject(Object *src)
 {
@@ -43,7 +53,7 @@ void freeObject(Object *obj)
     free(obj);
 }
 
-Object * rotateObjectX(Object *src, double a)
+Object *rotateObjectX(Object *src, double a)
 {
     // clone the src
     Object *dst = cloneObject(src);
@@ -83,7 +93,7 @@ Object *rotateObjectY(Object *src, double a)
     return dst;
 }
 
-Object * rotateObjectZ(Object *src, double a)
+Object *rotateObjectZ(Object *src, double a)
 {
     // clone the src
     Object *dst = cloneObject(src);

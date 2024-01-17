@@ -1,13 +1,12 @@
-#define N 20
+
 
 typedef Object Cube;
 
 Cube *initCube()
 {
-    Cube *cube = (Cube *)malloc(sizeof(Cube));
+    Cube *cube = initObject();
 
     // points
-    cube->points = initArray();
     double points[8][3] = {{-1, 1, 1}, {1, 1, 1}, {1, -1, 1}, {-1, -1, 1}, {-1, 1, -1}, {1, 1, -1}, {1, -1, -1}, {-1, -1, -1}};
 
     Point *currentPoint;
@@ -18,7 +17,6 @@ Cube *initCube()
     }
 
     // lines
-    cube->lines = initArray();
     double lines[12][2] = {
         {0, 1},
         {1, 2},
@@ -51,12 +49,9 @@ Cube *initCube()
 
 Cube *initCube2()
 {
-    Cube *cube = (Cube *)malloc(sizeof(Cube));
+    Cube *cube = initObject();
 
     // points
-    cube->points = initArray();
-
-    //
 
     double n2 = (double)N / 2;
 
@@ -87,7 +82,6 @@ Cube *initCube2()
     }
 
     // lines
-    cube->lines = initArray();
 
     return cube;
 }

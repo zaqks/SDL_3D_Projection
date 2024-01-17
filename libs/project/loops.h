@@ -3,6 +3,7 @@ double mx = 200;
 double my = 200;
 
 Cube *cubes[3] = {};
+Pyramid *pyrs[3] = {};
 double aX = 0;
 double aY = 0;
 double aZ = 0;
@@ -50,16 +51,15 @@ void eventFunc(SDL_Event e)
 
         if (e.type == SDL_MOUSEMOTION)
         {
-            aY -=  e.motion.xrel/2;
-            aX +=  e.motion.yrel/2;
-            
+            aY -= e.motion.xrel / 2;
+            aX += e.motion.yrel / 2;
         }
     }
 }
 
 void loopFunc(Window *win)
 {
-
+    /*
     cube2 = rotateObjectX(cube, aX);
     cubes[0] = cube2;
 
@@ -68,17 +68,27 @@ void loopFunc(Window *win)
 
     cube2 = rotateObjectZ(cube2, aZ);
     cubes[2] = cube2;
+    */
+
+    pyr2 = rotateObjectX(pyr, aX);
+    pyrs[0] = pyr2;
+
+    pyr2 = rotateObjectY(pyr2, aY);
+    pyrs[1] = pyr2;
+
+    pyr2 = rotateObjectZ(pyr2, aZ);
+    pyrs[2] = pyr2;
 
     //
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderClear(renderer);
 
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-    drawObject(renderer, cube2);
+    drawObject(renderer, pyr2);
 
     for (int i = 0; i < 3; i++)
     {
-        freeObject(cubes[i]);
+        freeObject(pyrs[i]);
     }
 
     //
