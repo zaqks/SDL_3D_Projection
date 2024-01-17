@@ -41,7 +41,7 @@ Cube *initCube()
     int *coord;
     for (int i = 0; i < 12; i++)
     {
-        coord = (int*)malloc(sizeof(int) * 2);
+        coord = (int *)malloc(sizeof(int) * 2);
         coord[0] = lines[i][0];
         coord[1] = lines[i][1];
 
@@ -93,3 +93,46 @@ void rotateCubeZ(Cube *cube, double a)
     }
 }
 
+//
+Cube *initCube2()
+{
+    Cube *cube = (Cube *)malloc(sizeof(Cube));
+
+    // points
+    cube->points = initArray();
+
+    //
+    int n = 15;
+    double n2 = (double)n / 2;
+
+    Point *currentPoint;
+    double x, y, z;
+
+    for (int k = 0; k < n; k++)
+    {
+        z = k;
+        z -= n2;
+        z /= n2;
+
+        for (int i = 0; i < n; i++)
+        {
+            x = i;
+            x -= n2;
+            x /= n2;
+            for (int j = 0; j < n; j++)
+            {
+                y = j;
+                y -= n2;
+                y /= n2;
+
+                currentPoint = initPoint(x, y, z);
+                pushArrayNode(cube->points, currentPoint);
+            }
+        }
+    }
+
+    // lines
+    cube->lines = initArray();
+
+    return cube;
+}
