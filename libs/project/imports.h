@@ -5,7 +5,7 @@
 #include "dataStructs/point.h"
 #include "dataStructs/cube.h"
 
-#include "widgets/cube.h"
+#include "objects/cube.h"
 #include "vars/vars.h"
 
 #include "loops.h"

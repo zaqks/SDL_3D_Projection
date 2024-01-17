@@ -102,7 +102,7 @@ Cube *initCube2()
     cube->points = initArray();
 
     //
-    int n = 15;
+    int n = 10;
     double n2 = (double)n / 2;
 
     Point *currentPoint;
