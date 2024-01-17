@@ -1,25 +1,87 @@
 double scale = 100;
-double angle = 1;
 double mx = 200;
 double my = 200;
 
+Cube *cubes[3] = {};
+double aX = 0;
+double aY = 0;
+double aZ = 0;
+
+bool lock = false;
+
+void eventFunc(SDL_Event e)
+{
+    // keyboard
+    if (e.type == SDL_KEYDOWN)
+    {
+        switch (e.key.keysym.sym)
+        {
+        case SDLK_LEFT:
+            aY += 1;
+            break;
+        case SDLK_RIGHT:
+            aY -= 1;
+            break;
+        //
+        case SDLK_UP:
+            aX += 1;
+            break;
+        case SDLK_DOWN:
+            aX -= 1;
+            break;
+
+        default:
+            break;
+        }
+    }
+
+    // mouse
+    if (e.type == SDL_MOUSEBUTTONDOWN)
+    {
+        lock = true;
+    }
+    if (e.type == SDL_MOUSEBUTTONUP)
+    {
+        lock = false;
+    }
+
+    if (lock)
+    {
+
+        if (e.type == SDL_MOUSEMOTION)
+        {
+            printf("%d %d\n", e.motion.x, e.motion.y);
+            aY -=  e.motion.xrel/2;
+            aX +=  e.motion.yrel/2;
+            
+        }
+    }
+}
+
 void loopFunc(Window *win)
 {
-    rotateCubeX(cube, angle);
-    rotateCubeY(cube, angle);
-    rotateCubeZ(cube, angle);
+
+    cube2 = rotateCubeX(cube, aX);
+    cubes[0] = cube2;
+
+    cube2 = rotateCubeY(cube2, aY);
+    cubes[1] = cube2;
+
+    cube2 = rotateCubeZ(cube2, aZ);
+    cubes[2] = cube2;
 
     //
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderClear(renderer);
 
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-    drawCubeW(renderer, cube);
+    drawCubeW(renderer, cube2);
+
+    for (int i = 0; i < 3; i++)
+    {
+        freeCube(cubes[i]);
+    }
 
     //
     SDL_RenderPresent(renderer);
-}
-
-void eventFunc(SDL_Event e)
-{
 }

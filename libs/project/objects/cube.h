@@ -1,6 +1,6 @@
-#define SCALE 100
-#define MX 200
-#define MY 200
+#define SCALE 200
+#define MX SCREEN_WIDTH / 2
+#define MY SCREEN_HEIGHT / 2
 
 void drawCubeW(
     SDL_Renderer *renderer, Cube *cube)
@@ -25,7 +25,7 @@ void drawCubeW(
 
         point1 = cube->points->arr[points[0]].val;
         point2 = cube->points->arr[points[1]].val;
-        
+
         SDL_RenderDrawLine(
             renderer,
             point1->x * SCALE + MX,
