@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "imports.h": "c",
+        "vars.h": "c"
+    }
+}
