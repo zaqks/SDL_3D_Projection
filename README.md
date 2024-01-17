@@ -6,5 +6,7 @@
   
 <div><h3>Doom Clone | Minecraft Clone | Flight Simulator</h3></div>
   
-  <img src="https://github.com/zaqks/SDL_3D_Projection/blob/main/docs/Screenshot%20from%202024-01-17%2021-05-22.png"></img>
+  <img src="https://github.com/zaqks/SDL_3D_Projection/blob/main/docs/img0.png"></img>
+  <img src="https://github.com/zaqks/SDL_3D_Projection/blob/main/docs/img1.png"></img>
+  <img src="https://github.com/zaqks/SDL_3D_Projection/blob/main/docs/img2.png"></img>
 </div>
