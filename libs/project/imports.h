@@ -8,7 +8,7 @@
 #include "dataStructs/pyramid.h"
 
 
-#include "objects/object.h" //rendering stuff
+#include "render/object.h" //rendering stuff
 #include "vars/vars.h"
 
 #include "loops.h"
