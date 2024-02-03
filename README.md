@@ -1,10 +1,6 @@
-<div align="center">
-  <h1>RTX SDL Implementation</h1>
-  
-  <h2>What's next?</h2>
-  
-  
-<div><h3>Doom Clone | Minecraft Clone | Flight Simulator</h3></div>
+<div align="left">
+  <h1>SDL Orthogonal 3D Projection 
+
   
   <img src="https://github.com/zaqks/SDL_3D_Projection/blob/main/docs/img0.png"></img>
   <img src="https://github.com/zaqks/SDL_3D_Projection/blob/main/docs/img1.png"></img>
